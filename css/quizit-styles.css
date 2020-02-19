@@ -7,3 +7,30 @@
     background-color: #343233;
     color: #efeae1;
 }
+
+.quiz-modal {
+    position: absolute;
+    transition-property: bottom, opacity;
+    transition: .2s ease-in-out;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0, .8);
+    padding: 50px;
+}
+
+.hide-quiz {
+    opacity: 0;
+    bottom: -100%;
+}
+
+.reveal-quiz {
+    display: block;
+    bottom: 0;
+    opacity: 1;
+}
+
+.quiz-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
