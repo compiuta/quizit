@@ -6,6 +6,7 @@
                 quizName: 'Quiz Name',
                 quizID: 0,
                 quizLocation: 'cellA1',
+                quizCategory: '',
                 quizTakenCount: 0
             }
         },
@@ -13,6 +14,7 @@
             quizCellA1: {
                 quizQuestions: {
                     1: {
+                        image: '',
                         question: 'How do you spell the number 1?',
                         answer: 'a',
                         choices: {
@@ -23,6 +25,7 @@
                         }
                     },
                     2: {
+                        image: '',
                         question: 'How do you spell the number 1?',
                         answer: 'a',
                         choices: {
@@ -33,6 +36,7 @@
                         }
                     },
                     3: {
+                        image: ''.
                         question: 'How do you spell the number 1?',
                         answer: 'a',
                         choices: {
@@ -43,6 +47,7 @@
                         }
                     },
                     4: {
+                        image: '',
                         question: 'How do you spell the number 1?',
                         answer: 'a',
                         choices: {
