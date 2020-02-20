@@ -1,8 +1,14 @@
 (function(window) {
     'use strict';
     let quizItView = {
+        getDomElements: function() {
+            this.quizListContainer = document.querySelector('[data-js="quizListContainer"]');
+            this.quizModal = document.querySelector('[data-js="quizModal"]');
+            this.quizTitle = document.querySelector('[data-js="quizTitle"]');
+            this.quizQuestionsContainer = document.querySelector('[data-js="quizQuestionsContainer"]');
+        },
         init: function() {
-            console.log('view initialised');
+            this.getDomElements();
         }
     };
 
