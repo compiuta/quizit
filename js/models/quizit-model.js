@@ -36,7 +36,7 @@
                         }
                     },
                     3: {
-                        image: ''.
+                        image: '',
                         question: 'How do you spell the number 1?',
                         answer: 'a',
                         choices: {
