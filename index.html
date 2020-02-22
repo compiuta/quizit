@@ -10,14 +10,9 @@
 <body class="body-tag">
     <h1>Quizit</h1>
     <dv data-js="quizListContainer" class="quiz-list-container">
-        <template data-js="quizListItemTemplate">
-            <a href="Javascript:void(0);" data-js="quizListItem" class="quiz-list__item">
-                <h4 data-js="quizListItemTitle" class="quiz-list__item-title"></h4>
-                <span data-js="quizListItemCounter" class="quiz-list__item-counter"></span>
-            </a>
-        </template>
     </dv>
     <div data-js="quizModal" class="quiz-modal hide-quiz">
+        <div data-js="quizModalClose" class="quiz-modal__close">x</div>
         <div class="quiz-container">
             <h2 data-js="quizTitle" class="quiz-title"></h2>
             <div data-js="quizQuestionsContainer" class="quiz-questions-container"></div>
