@@ -60,8 +60,9 @@
                 }
             }
         },
-        getData: function() {
-            console.log('hello');
+        getData: function(cell) {
+            let selectedCellData = this.selectedQuizData[cell];
+            return selectedCellData;
         },
         saveData: function () {
 
