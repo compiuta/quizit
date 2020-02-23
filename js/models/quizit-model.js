@@ -3,27 +3,62 @@
     let quizItModel = {
         quizList: {},
         selectedQuizData: {},
-        githubSampleAjax: function() {
-            fetch('https://api.github.com/repos/compiuta/quizit/contents/README.md')
+        fetchQuizList: function() {
+
+            fetch('https://api.github.com/repos/compiuta/quizit/contents/js/models/data/quiz-list.json')
             .then((response) => {
-                return response.text()
+                return response.json()
             })
             .then((data) => {
-                console.log(data);
+                let linkToFetch = data._links.git;
+                fetch(linkToFetch, {
+                    headers: {
+                        Accept: "application/vnd.github.v3.raw"
+                    }
+                })
+                .then((response) => {
+                    return response.json()
+                })
+                .then((json) => {
+                    app.quizItModel.quizList = json;
+                    app.quizItController.populateDataWhenReady();
+                });
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
         },
-        getData: function(cell) {
-            let selectedCellData = this.selectedQuizData[cell];
-            return selectedCellData;
+        getData: function(quizID) {
+
+            fetch('https://api.github.com/repos/compiuta/quizit/contents/js/models/data/' + quizID + '.json')
+            .then((response) => {
+                return response.json()
+            })
+            .then((data) => {
+                let linkToFetch = data._links.git;
+                fetch(linkToFetch, {
+                    headers: {
+                        Accept: "application/vnd.github.v3.raw"
+                    }
+                })
+                .then((response) => {
+                    return response.json()
+                })
+                .then((json) => {
+                    app.quizItModel.selectedQuizData = json;
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+            return app.quizItModel.selectedQuizData;
         },
         saveData: function () {
 
         },
         init: function() {
-            this.githubSampleAjax();
+            this.fetchQuizList();
             console.log('model initialised');
         }
     };
