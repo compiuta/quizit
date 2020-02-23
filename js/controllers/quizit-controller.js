@@ -2,15 +2,17 @@
     'use strict';
     let quizItController = {
         startQuiz: function() {
-            let dataCell = this.dataset.js;
-            let selectedCellData = app.quizItModel.getData(dataCell);
+            let quizID = this.dataset.js;
+            let selectedCellData = app.quizItModel.getData(quizID);
             app.quizItView.populateQuizModal(selectedCellData);
             app.quizItView.toggleQuizModal();
+        },
+        populateDataWhenReady: function() {
+            app.quizItView.populateQuestionList(app.quizItModel.quizList);
         },
         init: function() {
             app.quizItModel.init();
             app.quizItView.init();
-            app.quizItView.populateQuestionList(app.quizItModel.quizList);
             console.log('controller initialised');
         }
     };
