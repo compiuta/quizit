@@ -2,7 +2,7 @@
     "quiz0": {
         "quizName": "Quiz Name",
         "quizID": 0,
-        "quizCategory": "",
+        "quizCategory": " ",
         "quizTakenCount": 0
     }
 }
