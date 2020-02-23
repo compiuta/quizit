@@ -1,0 +1,50 @@
+{
+    "quiz0": {
+        "quizQuestions": {
+            "1": {
+                "image": "",
+                "question": "How do you spell the number 1?",
+                "answer": "a",
+                "choices": {
+                    "a": "one",
+                    "b": "won",
+                    "c": "uan",
+                    "d": "wand"
+                }
+            },
+            "2": {
+                "image": "",
+                "question": "How do you spell the number 1?",
+                "answer": "a",
+                "choices": {
+                    "a": "one",
+                    "b": "won",
+                    "c": "uan",
+                    "d": "wand"
+                }
+            },
+            "3": {
+                "image": "",
+                "question": "How do you spell the number 1?",
+                "answer": "a",
+                "choices": {
+                    "a": "one",
+                    "b": "won",
+                    "c": "uan",
+                    "d": "wand"
+                }
+            },
+            "4": {
+                "image": "",
+                "question": "How do you spell the number 1?",
+                "answer": "a",
+                "choices": {
+                    "a": "one",
+                    "b": "won",
+                    "c": "uan",
+                    "d": "wand"
+                }
+            }
+        }
+    } 
+}

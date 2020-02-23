@@ -1,64 +1,19 @@
 (function(window) {
     'use strict';
     let quizItModel = {
-        quizList: {
-            quizCellA1: {
-                quizName: 'Quiz Name',
-                quizID: 0,
-                quizLocation: 'cellA1',
-                quizCategory: '',
-                quizTakenCount: 0
-            }
-        },
-        selectedQuizData: {
-            quizCellA1: {
-                quizQuestions: {
-                    1: {
-                        image: '',
-                        question: 'How do you spell the number 1?',
-                        answer: 'a',
-                        choices: {
-                            a: 'one',
-                            b: 'won',
-                            c: 'uan',
-                            d: 'wand'
-                        }
-                    },
-                    2: {
-                        image: '',
-                        question: 'How do you spell the number 1?',
-                        answer: 'a',
-                        choices: {
-                            a: 'one',
-                            b: 'won',
-                            c: 'uan',
-                            d: 'wand'
-                        }
-                    },
-                    3: {
-                        image: '',
-                        question: 'How do you spell the number 1?',
-                        answer: 'a',
-                        choices: {
-                            a: 'one',
-                            b: 'won',
-                            c: 'uan',
-                            d: 'wand'
-                        }
-                    },
-                    4: {
-                        image: '',
-                        question: 'How do you spell the number 1?',
-                        answer: 'a',
-                        choices: {
-                            a: 'one',
-                            b: 'won',
-                            c: 'uan',
-                            d: 'wand'
-                        }
-                    }
-                }
-            }
+        quizList: {},
+        selectedQuizData: {},
+        githubSampleAjax: function() {
+            fetch('https://api.github.com/repos/compiuta/quizit/contents/README.md')
+            .then((response) => {
+                return response.text()
+            })
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         },
         getData: function(cell) {
             let selectedCellData = this.selectedQuizData[cell];
@@ -68,6 +23,7 @@
 
         },
         init: function() {
+            this.githubSampleAjax();
             console.log('model initialised');
         }
     };
