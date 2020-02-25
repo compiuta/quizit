@@ -7,6 +7,11 @@
             app.quizItView.populateQuizModal(selectedCellData);
             app.quizItView.toggleQuizModal();
         },
+        updateQuizCounter: function() {
+            app.quizItModel.updateModelQuizTakenCount();
+            app.quizitView.updateViewQuizTakenCount(app.quizItModel.);
+
+        },
         populateDataWhenReady: function() {
             app.quizItView.populateQuestionList(app.quizItModel.quizList);
         },
