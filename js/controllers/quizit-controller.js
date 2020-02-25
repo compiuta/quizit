@@ -3,17 +3,14 @@
     let quizItController = {
         startQuiz: function() {
             let quizID = this.dataset.js;
-            let selectedCellData = app.quizItModel.getData(quizID);
-            app.quizItView.populateQuizModal(selectedCellData);
+            app.quizItModel.getData(quizID);
             app.quizItView.toggleQuizModal();
         },
-        updateQuizCounter: function() {
-            app.quizItModel.updateModelQuizTakenCount();
-            app.quizitView.updateViewQuizTakenCount(app.quizItModel.);
-
-        },
-        populateDataWhenReady: function() {
+        populateListDataWhenReady: function() {
             app.quizItView.populateQuestionList(app.quizItModel.quizList);
+        },
+        populateQuizDataWhenReady: function(quizID) {
+            app.quizItView.populateQuizModal(app.quizItModel.quizList[quizID], app.quizItModel.selectedQuizData);
         },
         init: function() {
             app.quizItModel.init();
