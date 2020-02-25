@@ -2,6 +2,7 @@
     'use strict';
     let quizItView = {
         populateListItem: function(data) {
+            console.log(data);
             let quizListItem = document.createElement('a');
             let quizListItemTitle = document.createElement('h4');
             let quizListItemCounter = document.createElement('span');
@@ -10,6 +11,7 @@
             quizListItemTitle.classList.add('quiz-list__item-title');
             quizListItemCounter.classList.add('quiz-list__item-counter');
 
+            quizListItemCounter.setAttribute('data-js', 'quiz' + data.quizID + 'Count');
             quizListItem.href = 'javascript:void(0);';
             quizListItemTitle.innerText = data.quizName;
             quizListItemCounter.innerText = data.quizTakenCount;
@@ -26,11 +28,16 @@
                 let listItem = this.populateListItem(data[key]);
                 listItem.setAttribute('data-js', key);
                 listItem.addEventListener('click', app.quizItController.startQuiz);
+                listItem.addEventListener('click', app.quizItView.updateViewQuizTakenCount);
                 fragment.appendChild(listItem);
             }
 
             this.quizListContainer.appendChild(fragment);
 
+        },
+        updateViewQuizTakenCount: function(quizCount) {
+            let quizCounter = document.querySelector('[data-js="' + this.dataset.js + 'Count"]');
+            quizCounter.innerText = quizCount;
         },
         populateQuizModal: function(data) {
 
