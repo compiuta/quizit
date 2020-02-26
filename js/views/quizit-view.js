@@ -28,8 +28,21 @@
             this.quizListContainer.appendChild(fragment);
 
         },
+        createModalQUestionElements: function() {
+            let questionElement = document.createElement('div');
+
+            return questionElement;
+        },
         populateQuizModal: function(quizInfo, quizData) {
+            console.log(quizData);
             app.quizItView.quizTitle.innerText = quizInfo.quizName;
+
+            let fragment = document.createDocumentFragment();
+            for(let i = 0; i < Object.keys(quizData).length; i++) {
+                let questionEement = this.createModalQUestionElements(quizData[i]);
+                fragment.appendChild(questionEement);
+            }
+            this.quizQuestionsContainer.appendChild(fragment);
         },
         toggleQuizModal: function() {
             app.quizItView.quizModal.classList.toggle('hide-quiz');
