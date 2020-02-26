@@ -10,7 +10,7 @@
             app.quizItView.populateQuestionList(app.quizItModel.quizList);
         },
         populateQuizDataWhenReady: function(quizID) {
-            app.quizItView.populateQuizModal(app.quizItModel.quizList[quizID], app.quizItModel.selectedQuizData);
+            app.quizItView.populateQuizModal(app.quizItModel.quizList[quizID], app.quizItModel.selectedQuizData[quizID].quizQuestions);
         },
         init: function() {
             app.quizItModel.init();
