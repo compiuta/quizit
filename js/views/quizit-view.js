@@ -1,6 +1,7 @@
 (function(window) {
     'use strict';
     let quizItView = {
+        currentQuestionCounter: 1,
         populateListItem: function(data) {
             let quizListItem = document.createElement('a');
             let quizListItemTitle = document.createElement('h4');
@@ -28,21 +29,26 @@
             this.quizListContainer.appendChild(fragment);
 
         },
-        createModalQUestionElements: function() {
+        populateModalQUestionElements: function() {
             let questionElement = document.createElement('div');
-
-            return questionElement;
         },
         populateQuizModal: function(quizInfo, quizData) {
+
+            if(app.quizItView.currentQuestionCounter > Object.keys(quizData).length) {
+                app.quizItView.showQuizResults();
+                return;
+            }
+
             console.log(quizData);
             app.quizItView.quizTitle.innerText = quizInfo.quizName;
 
-            let fragment = document.createDocumentFragment();
             for(let i = 0; i < Object.keys(quizData).length; i++) {
-                let questionEement = this.createModalQUestionElements(quizData[i]);
-                fragment.appendChild(questionEement);
+                this.populateModalQUestionElements(quizData[i]);
             }
-            this.quizQuestionsContainer.appendChild(fragment);
+        },
+        showQuizResults: function() {
+            app.quizItView.currentQuestionCounter = 1;
+            
         },
         toggleQuizModal: function() {
             app.quizItView.quizModal.classList.toggle('hide-quiz');
