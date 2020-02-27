@@ -37,6 +37,7 @@
             if(app.quizItView.currentQuestionCounter > Object.keys(quizData).length) {
                 app.quizItView.showQuizResults();
                 return;
+                
             }
 
             console.log(quizData);
@@ -48,7 +49,7 @@
         },
         showQuizResults: function() {
             app.quizItView.currentQuestionCounter = 1;
-            
+
         },
         toggleQuizModal: function() {
             app.quizItView.quizModal.classList.toggle('hide-quiz');
