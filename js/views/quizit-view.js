@@ -16,6 +16,9 @@
 
             return quizListItem;
         },
+        toggleLoader: function() {
+            app.quizItView.loader.classList.toggle('hide');
+        },
         populateQuestionList: function(data) {
             let fragment = document.createDocumentFragment();
 
@@ -37,7 +40,7 @@
             if(app.quizItView.currentQuestionCounter > Object.keys(quizData).length) {
                 app.quizItView.showQuizResults();
                 return;
-                
+
             }
 
             console.log(quizData);
@@ -61,6 +64,7 @@
             this.quizTitle = document.querySelector('[data-js="quizTitle"]');
             this.quizQuestionsContainer = document.querySelector('[data-js="quizQuestionsContainer"]');
             this.quizModalClose = document.querySelector('[data-js="quizModalClose"]');
+            this.loader = document.querySelector('[data-js="loader"]');
         },
         addEventListeners: function() {
             this.quizModalClose.addEventListener('click', this.toggleQuizModal);
