@@ -2,15 +2,19 @@
     'use strict';
     let quizItController = {
         startQuiz: function() {
+            app.quizItView.toggleLoader();
             let quizID = this.dataset.js;
             app.quizItModel.getData(quizID);
             app.quizItView.toggleQuizModal();
         },
         populateListDataWhenReady: function() {
             app.quizItView.populateQuestionList(app.quizItModel.quizList);
+            setTimeout(app.quizItView.toggleLoader, 1000);
         },
         populateQuizDataWhenReady: function(quizID) {
             app.quizItView.populateQuizModal(app.quizItModel.quizList[quizID], app.quizItModel.selectedQuizData[quizID].quizQuestions);
+            
+            setTimeout(app.quizItView.toggleLoader, 1000);
         },
         init: function() {
             app.quizItModel.init();
