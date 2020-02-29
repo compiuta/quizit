@@ -32,23 +32,25 @@
             this.quizListContainer.appendChild(fragment);
 
         },
-        populateModalQUestionElements: function() {
-            let questionElement = document.createElement('div');
+        populateModalQuestionElements: function(data) {
+            app.quizItView.quizQuestion.innerText = data.question;
+            app.quizItView.quizChoiceOneTitle.innerText = data.choices.a;
+            app.quizItView.quizChoiceTwoTitle.innerText = data.choices.b;
+            app.quizItView.quizChoiceThreeTitle.innerText = data.choices.c;
+            app.quizItView.quizChoiceFourTitle.innerText = data.choices.d;
+
         },
         populateQuizModal: function(quizInfo, quizData) {
 
             if(app.quizItView.currentQuestionCounter > Object.keys(quizData).length) {
                 app.quizItView.showQuizResults();
                 return;
-
             }
 
             console.log(quizData);
             app.quizItView.quizTitle.innerText = quizInfo.quizName;
-
-            for(let i = 0; i < Object.keys(quizData).length; i++) {
-                this.populateModalQUestionElements(quizData[i]);
-            }
+            app.quizItView.populateModalQuestionElements(quizData[app.quizItView.currentQuestionCounter]);
+            app.quizItView.currentQuestionCounter++
         },
         showQuizResults: function() {
             app.quizItView.currentQuestionCounter = 1;
@@ -59,15 +61,24 @@
             app.quizItView.quizModal.classList.toggle('reveal-quiz');
         },
         getDomElements: function() {
+            this.loader = document.querySelector('[data-js="loader"]');
             this.quizListContainer = document.querySelector('[data-js="quizListContainer"]');
             this.quizModal = document.querySelector('[data-js="quizModal"]');
             this.quizTitle = document.querySelector('[data-js="quizTitle"]');
             this.quizQuestionsContainer = document.querySelector('[data-js="quizQuestionsContainer"]');
             this.quizModalClose = document.querySelector('[data-js="quizModalClose"]');
-            this.loader = document.querySelector('[data-js="loader"]');
+            this.quizQuestion = document.querySelector('[data-js="quizQuestion"]');
+            this.quizChoiceOneTitle = document.querySelector('[js-data="ChoiceOneTitle"]');
+            this.quizChoiceTwoTitle = document.querySelector('[js-data="ChoiceTwoTitle"]');
+            this.quizChoiceThreeTitle = document.querySelector('[js-data="ChoiceThreeTitle"]');
+            this.quizChoiceFourTitle = document.querySelector('[js-data="ChoiceFourTitle"]');
+            this.submitAnswerButton = document.querySelector('[data-js="submitAnswer"]');
+            this.nextQuestionButton = document.querySelector('[data-js="nextQuestion"]');
+            this.quizInputChoiceElements = document.querySelectorAll('[name="choice"]');
         },
         addEventListeners: function() {
             this.quizModalClose.addEventListener('click', this.toggleQuizModal);
+            this.submitAnswerButton.addEventListener('click', app.quizItController.checkAnswer);
         },
         init: function() {
             this.getDomElements();
