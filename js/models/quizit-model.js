@@ -3,6 +3,7 @@
     let quizItModel = {
         quizList: {},
         selectedQuizData: {},
+        currentQuizID: '',
         fetchQuizList: function() {
             fetch('https://api.github.com/repos/compiuta/quizit/contents/js/models/data/quiz-list.json')
             .then((response) => {
