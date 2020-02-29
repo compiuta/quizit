@@ -25,32 +25,34 @@
                 <h3 data-js="quizQuestion" class="quiz-question"></h3>
                 <div class="question-answer-choices">
                     <label class="choice-container" for="choiceOne">
-                        <input js-data="a" id="choiceOne" type="radio" class="hidden">
+                        <input name="choice" value="a" id="choiceOne" type="radio" class="hidden">
                         <span class="circle-icon"></span>
                         <span js-data="ChoiceOneTitle" class="choise-title"></span>
                     </label>
                     <div class="choice-container">
                         <label class="choice-container" for="choiceOne">
-                            <input js-data="b" id="choiceTwo" type="radio" class="hidden">
+                            <input name="choice" value="b" id="choiceTwo" type="radio" class="hidden">
                             <span class="circle-icon"></span>
                             <span js-data="ChoiceTwoTitle" class="choise-title"></span>
                         </label>
                     </div>
                     <div class="choice-container">
                         <label class="choice-container" for="choiceThree">
-                            <input js-data="c" id="choiceThree" type="radio" class="hidden">
+                            <input name="choice" value="c" id="choiceThree" type="radio" class="hidden">
                             <span class="circle-icon"></span>
                             <span js-data="ChoiceThreeTitle" class="choise-title"></span>
                         </label>
                     </div>
                     <div class="choice-container">
                         <label class="choice-container" for="choiceFour">
-                            <input js-data="d" id="choiceFour" type="radio" class="hidden">
+                            <input name="choice" value="d" id="choiceFour" type="radio" class="hidden">
                             <span class="circle-icon"></span>
                             <span js-data="ChoiceFourTitle" class="choise-title"></span>
                         </label>
                     </div>
                 </div>
+                <button data-js="submitAnswer" class="submit-button">Submit Answer</button>
+                <button data-js="nextQuestion" class="next-button hide">Next Question</button>
             </form>
         </div>
     </div>
