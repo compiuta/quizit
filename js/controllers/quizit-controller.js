@@ -4,6 +4,7 @@
         startQuiz: function() {
             app.quizItView.toggleLoader();
             app.quizItModel.currentQuizID = this.dataset.js;
+            app.quizItModel.correctAnswersCounter = 0;
             app.quizItModel.getData(app.quizItModel.currentQuizID);
             app.quizItView.toggleQuizModal();
         },
@@ -21,13 +22,32 @@
             app.quizItView.quizInputChoiceElements.forEach(element => {
                 
                 if(element.checked) {
+                    console.log(app.quizItView.currentQuestionCounter);
                     if(element.value === app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].answer) {
-                        alert('correct')
+                        app.quizItView.toggleAnswerMessage(true);
+                        app.quizItModel.correctAnswersCounter++
                     } else {
-                        alert('wrong');
+                        app.quizItView.toggleAnswerMessage(false, app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].answer);
                     }
                 }
             });
+
+            app.quizItView.currentQuestionCounter++
+            app.quizItView.toggleQuizButtons();
+        },
+        nextQuestion: function(e) {
+            e.preventDefault();
+            app.quizItView.toggleLoader();
+
+            if(app.quizItView.currentQuestionCounter > Object.keys(app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions).length) {
+                app.quizItView.showQuizResults(app.quizItModel.correctAnswersCounter);
+                return;
+            }
+
+            app.quizItView.resetRadioButtons();
+            app.quizItView.toggleAnswerMessage(true, 0, true);
+            app.quizItView.toggleQuizButtons();
+            app.quizItController.populateQuizDataWhenReady(app.quizItModel.currentQuizID);
         },
         init: function() {
             app.quizItModel.init();
