@@ -4,6 +4,7 @@
         quizList: {},
         selectedQuizData: {},
         currentQuizID: '',
+        correctAnswersCounter: 0,
         fetchQuizList: function() {
             fetch('https://api.github.com/repos/compiuta/quizit/contents/js/models/data/quiz-list.json')
             .then((response) => {
