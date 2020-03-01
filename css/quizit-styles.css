@@ -117,3 +117,21 @@
 	100%{-webkit-transform:translateX(-20px);
 	}
 }
+
+/*answer alert*/
+.answer-alert {
+    color: #fff;
+    padding: 10px 5px;
+}
+
+.alert-warning {
+    background-color: rgb(156, 0, 8);
+}
+
+.alert-success {
+    background-color: rgb(5, 153, 0);
+}
+
+.answer-message {
+    margin: 0;
+}
