@@ -29,11 +29,13 @@
                     } else {
                         app.quizItView.toggleAnswerMessage(false, app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].answer);
                     }
+
+                    app.quizItView.currentQuestionCounter++
+                    app.quizItView.toggleQuizButtons();
                 }
             });
 
-            app.quizItView.currentQuestionCounter++
-            app.quizItView.toggleQuizButtons();
+            return;
         },
         nextQuestion: function(e) {
             e.preventDefault();
@@ -41,6 +43,8 @@
 
             if(app.quizItView.currentQuestionCounter > Object.keys(app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions).length) {
                 app.quizItView.showQuizResults(app.quizItModel.correctAnswersCounter);
+                app.quizItView.quizModalClose.removeEventListener('click', app.quizItView.toggleQuizModal);
+                app.quizItView.quizModalClose.addEventListener('click', app.quizItView.resetInitialQuizState);
                 return;
             }
 
