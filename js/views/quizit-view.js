@@ -41,20 +41,32 @@
 
         },
         populateQuizModal: function(quizInfo, quizData) {
-
-            console.log(quizData);
             app.quizItView.quizTitle.innerText = quizInfo.quizName;
             app.quizItView.populateModalQuestionElements(quizData[app.quizItView.currentQuestionCounter]);
         },
         showQuizResults: function(score) {
-            app.quizItView.quizQuestionsContainer.innerHTML = 'end of quiz. your score is ' + score;
+            app.quizItView.quizScore.innerText = score;
+            app.quizItView.toggleResults();
             app.quizItView.currentQuestionCounter = 1;
             app.quizItView.toggleAnswerMessage(true, 0, true);
-            app.quizItView.toggleLoader();
+            setTimeout(app.quizItView.toggleLoader, 1000);
         },
         toggleQuizModal: function() {
             app.quizItView.quizModal.classList.toggle('hide-quiz');
             app.quizItView.quizModal.classList.toggle('reveal-quiz');
+            app.quizItView.currentQuestionCounter = 1;
+        },
+        toggleResults: function() {
+            app.quizItView.quizQuestionsContainer.classList.toggle('hide');
+            app.quizItView.quizResultsContainer.classList.toggle('hide');
+        },
+        resetInitialQuizState: function() {
+            app.quizItView.toggleQuizModal();
+            app.quizItView.resetRadioButtons();
+            app.quizItView.toggleResults();
+            app.quizItView.toggleQuizButtons();
+            app.quizItView.quizModalClose.addEventListener('click', app.quizItView.toggleQuizModal);
+            app.quizItView.quizModalClose.removeEventListener('click', app.quizItView.resetInitialQuizState);
         },
         toggleAnswerMessage: function(isCorrect, answer, nextQuestion) {
 
@@ -94,15 +106,17 @@
             this.quizQuestionsContainer = document.querySelector('[data-js="quizQuestionsContainer"]');
             this.quizModalClose = document.querySelector('[data-js="quizModalClose"]');
             this.quizQuestion = document.querySelector('[data-js="quizQuestion"]');
-            this.quizChoiceOneTitle = document.querySelector('[js-data="ChoiceOneTitle"]');
-            this.quizChoiceTwoTitle = document.querySelector('[js-data="ChoiceTwoTitle"]');
-            this.quizChoiceThreeTitle = document.querySelector('[js-data="ChoiceThreeTitle"]');
-            this.quizChoiceFourTitle = document.querySelector('[js-data="ChoiceFourTitle"]');
+            this.quizChoiceOneTitle = document.querySelector('[data-js="ChoiceOneTitle"]');
+            this.quizChoiceTwoTitle = document.querySelector('[data-js="ChoiceTwoTitle"]');
+            this.quizChoiceThreeTitle = document.querySelector('[data-js="ChoiceThreeTitle"]');
+            this.quizChoiceFourTitle = document.querySelector('[data-js="ChoiceFourTitle"]');
             this.submitAnswerButton = document.querySelector('[data-js="submitAnswer"]');
             this.nextQuestionButton = document.querySelector('[data-js="nextQuestion"]');
             this.quizInputChoiceElements = document.querySelectorAll('[name="choice"]');
-            this.answerAlert = document.querySelector('[js-data="answerAlert"]');
-            this.answerMessage = document.querySelector('[js-data="answerMessage"]');
+            this.answerAlert = document.querySelector('[data-js="answerAlert"]');
+            this.answerMessage = document.querySelector('[data-js="answerMessage"]');
+            this.quizResultsContainer = document.querySelector('[data-js="quizResults"]');
+            this.quizScore = document.querySelector('[data-js="quizScore"]');
         },
         addEventListeners: function() {
             this.quizModalClose.addEventListener('click', this.toggleQuizModal);
@@ -113,7 +127,6 @@
             this.getDomElements();
             this.addEventListeners();
             console.log('view initialised');
-            
         }
     };
 
