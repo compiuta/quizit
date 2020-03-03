@@ -1,6 +1,7 @@
 (function(window) {
     'use strict';
     let quizItController = {
+        totalQuestionCount: 0,
         startQuiz: function() {
             app.quizItView.toggleLoader();
             app.quizItModel.currentQuizID = this.dataset.js;
@@ -14,7 +15,7 @@
         },
         populateQuizDataWhenReady: function(quizID) {
             app.quizItView.populateQuizModal(app.quizItModel.quizList[quizID], app.quizItModel.selectedQuizData[quizID].quizQuestions);
-            
+            app.quizItController.totalQuestionCount = app.quizItModel.selectedQuizData[quizID].totalQuestionCount;
             setTimeout(app.quizItView.toggleLoader, 1000);
         },
         checkAnswer: function(e) {
