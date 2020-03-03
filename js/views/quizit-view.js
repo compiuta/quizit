@@ -45,7 +45,7 @@
             app.quizItView.populateModalQuestionElements(quizData[app.quizItView.currentQuestionCounter]);
         },
         showQuizResults: function(score) {
-            app.quizItView.quizScore.innerText = score;
+            app.quizItView.quizScore.innerText = score + ' / ' + app.quizItController.totalQuestionCount;
             app.quizItView.toggleResults();
             app.quizItView.currentQuestionCounter = 1;
             app.quizItView.toggleAnswerMessage(true, 0, true);
