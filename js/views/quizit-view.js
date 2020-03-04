@@ -2,12 +2,24 @@
     'use strict';
     let quizItView = {
         currentQuestionCounter: 1,
-        populateListItem: function(data) {
+        populateListItem: function(data, counter) {
             let quizListItem = document.createElement('a');
             let quizListItemTitle = document.createElement('h4');
+            let cardColor;
 
-            quizListItem.classList.add('quiz-list__item');
-            quizListItemTitle.classList.add('quiz-list__item-title');
+            if(counter === 1) {
+                cardColor = 'blue-card';
+            } else if(counter === 2) {
+                cardColor = 'yellow-card';
+            } else if(counter === 3) {
+                cardColor = 'green-card';
+            } else if(counter === 4) {
+                cardColor = 'red-card';
+            }
+
+            quizListItem.classList.add('quiz-card');
+            quizListItem.classList.add(cardColor);
+            quizListItemTitle.classList.add('quiz-card__title');
 
             quizListItem.href = 'javascript:void(0);';
             quizListItemTitle.innerText = data.quizName;
@@ -21,12 +33,19 @@
         },
         populateQuestionList: function(data) {
             let fragment = document.createDocumentFragment();
+            let cardCounter = 1;
 
             for(let key in data) {
-                let listItem = this.populateListItem(data[key]);
+                let listItem = this.populateListItem(data[key], cardCounter);
                 listItem.setAttribute('data-js', key);
                 listItem.addEventListener('click', app.quizItController.startQuiz);
                 fragment.appendChild(listItem);
+
+                if(cardCounter === 4) {
+                    cardCounter = 1;
+                } else {
+                    cardCounter++;
+                }
             }
 
             this.quizListContainer.appendChild(fragment);
