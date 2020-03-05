@@ -71,6 +71,8 @@
             setTimeout(app.quizItView.toggleLoader, 1000);
         },
         toggleQuizModal: function() {
+            app.quizItView.bodyTag.classList.toggle('active-quiz')
+            app.quizItView.quizListContainer.classList.toggle('hide');
             app.quizItView.quizModal.classList.toggle('hide-quiz');
             app.quizItView.quizModal.classList.toggle('reveal-quiz');
             app.quizItView.currentQuestionCounter = 1;
@@ -118,6 +120,7 @@
             });
         },
         getDomElements: function() {
+            this.bodyTag = document.querySelector('[data-js="bodyTag"]');
             this.loader = document.querySelector('[data-js="loader"]');
             this.quizListContainer = document.querySelector('[data-js="quizListContainer"]');
             this.quizModal = document.querySelector('[data-js="quizModal"]');
