@@ -2,20 +2,6 @@
     box-sizing: border-box;
 }
 
-.body-tag {
-    margin: 0;
-    background-color: #fde5e5;
-}
-
-.main-header {
-    padding: 20px 10px;
-}
-
-.main-title {
-    color: #343233;
-    margin: 0;
-}
-
 .hide {
     display: none !important;
 }
@@ -24,12 +10,98 @@
     max-width: 1800px;
 }
 
+.body-tag {
+    margin: 0;
+    background-color: #fde5e5;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.body-tag.active-quiz {
+    background-color: #fae2c3;
+    color: #d93e35;
+}
+
+.main-header {
+    padding: 20px 10px;
+}
+
+.main-title {
+    color: #343c24;
+    margin: 0;
+    border-top: 5px solid #343c24;
+    border-bottom: 5px solid #343c24;
+    padding: 10px 0;
+    font-style: italic;
+}
+
+.quiz-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    color: #d93e35;
+    border-top: 5px solid #d93e35;
+    border-bottom: 5px solid #d93e35;
+    padding: 10px 0;
+    font-style: italic;
+}
+
 .quiz-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 10px;
 }
+
+.active-quiz .main-header {
+    display: none;
+}
+
+/*choice container styles */
+.question-answer-choices {
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice-container {
+    background: blue;
+    border: 1px solid black;
+    display: inline-block;
+    width: 300px;
+}
+
+.inner-choice-wrapper {
+    margin: 20px 5px 5px 5px;
+    padding: 50px;
+    height: 400px;
+    position: relative;
+}
+
+.circle-icon-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orange-choice {
+    background-color: #fa8e3f;
+}
+
+.orange-choice .inner-choice-wrapper {
+    background-color: #64495b;
+    color: #ffe6b4;
+}
+
+.orange-choice .circle-icon {
+    border-color: #582a2a;
+}
+
+/*end choice container styles*/
 
 /* front page card styles */
 .quiz-card {
@@ -66,26 +138,15 @@
 }
 
 .quiz-modal {
-    position: absolute;
     transition-property: bottom, opacity;
     transition: .2s ease-in-out;
-    min-height: 100vh;
-    min-width: 100vw;
-    max-width:100%;
-    background-color: rgba(0,0,0, .8);
-    padding: 50px;
-    overflow:auto;
-    z-index: -1;
+    padding: 0 10px;
 }
 
 .quiz-modal__close {
-    font-size: 60px;
+    font-size: 36px;
     font-weight: bold;
-    color: #fff;
-    position: absolute;
-    top: 0;
-    right: 70px;
-    z-index: 1;
+    color: #343c24;
 }
 
 .hide-quiz {
@@ -100,11 +161,11 @@
     z-index: 1;
 }
 
+.quiz-title {
+    margin: 0;
+}
+
 .quiz-container {
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    color: #343233;
 }
 
 /*loader from https://codepen.io/hafizfattah/pen/AbBtc */
@@ -175,7 +236,9 @@
 	}
 }
 
-/*answer alert*/
+/* end loader */
+
+/* start answer alert*/
 .answer-alert {
     color: #fff;
     padding: 10px 5px;
@@ -192,3 +255,4 @@
 .answer-message {
     margin: 0;
 }
+/* end answer alert*/
