@@ -93,17 +93,17 @@
 
             if(nextQuestion) {
                 app.quizItView.answerAlert.classList.add('hide');
-                app.quizItView.answerAlert.classList.remove('alert-success');
-                app.quizItView.answerAlert.classList.remove('alert-warning');
+                app.quizItView.bodyTag.classList.remove('alert-success');
+                app.quizItView.bodyTag.classList.remove('alert-warning');
                 return;
             }
 
             if(isCorrect) {
                 app.quizItView.answerMessage.innerText = 'Correct!'
-                app.quizItView.answerAlert.classList.add('alert-success');
+                app.quizItView.bodyTag.classList.add('alert-success');
             } else {
                 app.quizItView.answerMessage.innerText = 'Wrong! The correct answer is: ' + answer;
-                app.quizItView.answerAlert.classList.add('alert-warning');
+                app.quizItView.bodyTag.classList.add('alert-warning');
             }
 
             app.quizItView.answerAlert.classList.remove('hide');
