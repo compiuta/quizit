@@ -28,7 +28,7 @@
                         app.quizItView.toggleAnswerMessage(true);
                         app.quizItModel.correctAnswersCounter++
                     } else {
-                        app.quizItView.toggleAnswerMessage(false, app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].answer);
+                        app.quizItView.toggleAnswerMessage(false, app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].choices[app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].answer]);
                     }
 
                     app.quizItView.currentQuestionCounter++
