@@ -61,6 +61,8 @@
 .question-answer-choices {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    overflow: auto;
 }
 
 .choice-container {
@@ -68,12 +70,26 @@
     border: 1px solid black;
     display: inline-block;
     width: 300px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.choice-container:last-child {
+    margin-right: 0;
+}
+
+.choice-title {
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .inner-choice-wrapper {
     margin: 20px 5px 5px 5px;
-    padding: 50px;
     height: 400px;
+    text-align: center;
+    padding: 10px;
     position: relative;
 }
 
@@ -88,6 +104,13 @@
     justify-content: center;
 }
 
+.circle-icon {
+    height: 250px;
+    width: 250px;
+    border: 10px solid;
+    border-radius: 50%;
+}
+
 .orange-choice {
     background-color: #fa8e3f;
 }
@@ -99,6 +122,65 @@
 
 .orange-choice .circle-icon {
     border-color: #582a2a;
+    background-color: #582a2a;
+}
+
+ #choiceOne:checked ~ .orange-choice .circle-icon {
+    background-color: transparent;
+}
+
+.green-choice {
+    background-color: #749378;
+}
+
+.green-choice .inner-choice-wrapper {
+    background-color: #e3d3c2;
+    color: #759579;
+}
+
+.green-choice .circle-icon {
+    border-color: #e76954;
+    background-color: #e76954;
+}
+
+ #choiceTwo:checked ~ .green-choice .circle-icon {
+    background-color: transparent;
+}
+
+.red-choice {
+    background-color: #f7473d;
+}
+
+.red-choice .inner-choice-wrapper {
+    background-color: #fba640;
+    color: #380907;
+}
+
+.red-choice .circle-icon {
+    border-color: #f7d79e;
+    background-color: #f7d79e;
+}
+
+ #choiceThree:checked ~ .red-choice .circle-icon {
+    background-color: transparent;
+}
+
+.purple-choice {
+    background-color: #49282c;
+}
+
+.purple-choice .inner-choice-wrapper {
+    background-color: #685485;
+    color: #f8673e;
+}
+
+.purple-choice .circle-icon {
+    border-color: #49282c;
+    background-color: #49282c;
+}
+
+ #choiceFour:checked ~ .purple-choice .circle-icon {
+    background-color: transparent;
 }
 
 /*end choice container styles*/
@@ -244,12 +326,12 @@
     padding: 10px 5px;
 }
 
-.alert-warning {
-    background-color: rgb(156, 0, 8);
+.body-tag.alert-warning {
+    background-color: #49282c
 }
 
-.alert-success {
-    background-color: rgb(5, 153, 0);
+.body-tag.alert-success {
+    background-color: #80b5b7;
 }
 
 .answer-message {
