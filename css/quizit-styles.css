@@ -2,6 +2,19 @@
     box-sizing: border-box;
 }
 
+button {
+    -webkit-appearance: none;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: none;
+    border-color: buttonface;
+    border-image: initial;
+}
+
+button:focus {
+    outline: none;
+}
+
 .hide {
     display: none !important;
 }
@@ -194,6 +207,9 @@
     height: 200px;
     text-decoration: none;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .blue-card {
@@ -212,6 +228,7 @@
 }
 .quiz-card__title {
     margin: 0;
+    font-size: 20px;
 }
 
 .yellow-card {
@@ -220,8 +237,6 @@
 }
 
 .quiz-modal {
-    transition-property: bottom, opacity;
-    transition: .2s ease-in-out;
     padding: 0 10px;
 }
 
@@ -229,25 +244,12 @@
     font-size: 36px;
     font-weight: bold;
     color: #343c24;
-}
-
-.hide-quiz {
-    opacity: 0;
-    top: -100%;
-}
-
-.reveal-quiz {
-    display: block;
-    top: 0;
-    opacity: 1;
-    z-index: 1;
+    margin-right: 5px;
+    cursor: pointer;
 }
 
 .quiz-title {
     margin: 0;
-}
-
-.quiz-container {
 }
 
 /*loader from https://codepen.io/hafizfattah/pen/AbBtc */
@@ -261,12 +263,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0, .9);
+    background-color: #2b2a2b;
 }
 
 .loader-title {
     margin-bottom: 50px;
-	font-size:16px;
+    font-size:16px;
+    color: #d93e35;
 }
 
 .loader-circle {
@@ -322,19 +325,44 @@
 
 /* start answer alert*/
 .answer-alert {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background-color: rgba(0,0,0, .3);
+    width: 100%;
+    min-height: 100%;
     color: #fff;
-    padding: 10px 5px;
 }
 
-.body-tag.alert-warning {
-    background-color: #49282c
+.answer-alert-inner {
+    padding: 20px 15px;
+    border-radius: 6px;
+    font-size: 20px;
 }
 
-.body-tag.alert-success {
-    background-color: #80b5b7;
+.body-tag.alert-warning .answer-alert-inner {
+    background-color: #f74d3d;
+}
+
+.body-tag.alert-success .answer-alert-inner {
+    background-color: #37a91b;
 }
 
 .answer-message {
     margin: 0;
 }
 /* end answer alert*/
+
+.quiz-button {
+    margin-top: 5px;
+    padding: 10px 8px;
+    color: #fff;
+    background-color: #49282c;
+    border-radius: 6px;
+    transition: background-color .2s ease-in-out;
+    cursor: pointer;
+    font-weight: bold;
+}
