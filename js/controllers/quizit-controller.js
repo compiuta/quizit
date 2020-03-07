@@ -11,12 +11,12 @@
         },
         populateListDataWhenReady: function() {
             app.quizItView.populateQuestionList(app.quizItModel.quizList);
-            setTimeout(app.quizItView.toggleLoader, 1000);
+            setTimeout(app.quizItView.toggleLoader, 800);
         },
         populateQuizDataWhenReady: function(quizID) {
             app.quizItView.populateQuizModal(app.quizItModel.quizList[quizID], app.quizItModel.selectedQuizData[quizID].quizQuestions);
             app.quizItController.totalQuestionCount = app.quizItModel.selectedQuizData[quizID].totalQuestionCount;
-            setTimeout(app.quizItView.toggleLoader, 1000);
+            setTimeout(app.quizItView.toggleLoader, 800);
         },
         checkAnswer: function(e) {
             e.preventDefault();
@@ -31,7 +31,6 @@
                         app.quizItView.toggleAnswerMessage(false, app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].choices[app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions[app.quizItView.currentQuestionCounter].answer]);
                     }
 
-                    app.quizItView.currentQuestionCounter++
                     app.quizItView.toggleQuizButtons();
                 }
             });
@@ -41,18 +40,18 @@
         nextQuestion: function(e) {
             e.preventDefault();
             app.quizItView.toggleLoader();
-
-            if(app.quizItView.currentQuestionCounter > Object.keys(app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions).length) {
+            
+            if(app.quizItView.currentQuestionCounter === Object.keys(app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions).length) {
                 app.quizItView.showQuizResults(app.quizItModel.correctAnswersCounter);
-                app.quizItView.quizModalClose.removeEventListener('click', app.quizItView.toggleQuizModal);
-                app.quizItView.quizModalClose.addEventListener('click', app.quizItView.resetInitialQuizState);
                 return;
             }
 
+            app.quizItView.currentQuestionCounter++
             app.quizItView.resetRadioButtons();
             app.quizItView.toggleAnswerMessage(true, 0, true);
             app.quizItView.toggleQuizButtons();
             app.quizItController.populateQuizDataWhenReady(app.quizItModel.currentQuizID);
+            
         },
         init: function() {
             app.quizItModel.init();
