@@ -57,7 +57,6 @@
             app.quizItView.quizChoiceTwoTitle.innerText = data.choices.b;
             app.quizItView.quizChoiceThreeTitle.innerText = data.choices.c;
             app.quizItView.quizChoiceFourTitle.innerText = data.choices.d;
-
         },
         populateQuizModal: function(quizInfo, quizData) {
             app.quizItView.quizTitle.innerText = quizInfo.quizName;
@@ -66,15 +65,13 @@
         showQuizResults: function(score) {
             app.quizItView.quizScore.innerText = score + ' / ' + app.quizItController.totalQuestionCount;
             app.quizItView.toggleResults();
-            app.quizItView.currentQuestionCounter = 1;
             app.quizItView.toggleAnswerMessage(true, 0, true);
-            setTimeout(app.quizItView.toggleLoader, 1000);
+            setTimeout(app.quizItView.toggleLoader, 800);
         },
-        toggleQuizModal: function() {
+        toggleQuizModal: function(resetState) {
             app.quizItView.bodyTag.classList.toggle('active-quiz')
             app.quizItView.quizListContainer.classList.toggle('hide');
-            app.quizItView.quizModal.classList.toggle('hide-quiz');
-            app.quizItView.quizModal.classList.toggle('reveal-quiz');
+            app.quizItView.quizModal.classList.toggle('hide');
             app.quizItView.currentQuestionCounter = 1;
         },
         toggleResults: function() {
@@ -82,12 +79,21 @@
             app.quizItView.quizResultsContainer.classList.toggle('hide');
         },
         resetInitialQuizState: function() {
+            app.quizItView.toggleLoader();
+
+            if(app.quizItView.currentQuestionCounter === app.quizItController.totalQuestionCount) {
+                app.quizItView.toggleResults();
+            }
+
+            if(app.quizItView.submitAnswerButton.classList.contains('hide')) {
+                app.quizItView.toggleQuizButtons();
+            }
+
             app.quizItView.toggleQuizModal();
             app.quizItView.resetRadioButtons();
-            app.quizItView.toggleResults();
-            app.quizItView.toggleQuizButtons();
-            app.quizItView.quizModalClose.addEventListener('click', app.quizItView.toggleQuizModal);
-            app.quizItView.quizModalClose.removeEventListener('click', app.quizItView.resetInitialQuizState);
+            app.quizItView.toggleAnswerMessage(false,false,true);
+
+            setTimeout(app.quizItView.toggleLoader, 800);
         },
         toggleAnswerMessage: function(isCorrect, answer, nextQuestion) {
 
@@ -99,7 +105,7 @@
             }
 
             if(isCorrect) {
-                app.quizItView.answerMessage.innerText = 'Correct!'
+                app.quizItView.answerMessage.innerText = 'Correct!';
                 app.quizItView.bodyTag.classList.add('alert-success');
             } else {
                 app.quizItView.answerMessage.innerText = 'Wrong! The correct answer is: ' + answer;
@@ -141,7 +147,7 @@
             this.quizScore = document.querySelector('[data-js="quizScore"]');
         },
         addEventListeners: function() {
-            this.quizModalClose.addEventListener('click', this.toggleQuizModal);
+            this.quizModalClose.addEventListener('click', this.resetInitialQuizState);
             this.submitAnswerButton.addEventListener('click', app.quizItController.checkAnswer);
             this.nextQuestionButton.addEventListener('click', app.quizItController.nextQuestion);
         },
