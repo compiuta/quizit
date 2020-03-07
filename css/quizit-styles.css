@@ -63,7 +63,6 @@ button:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 10px;
 }
 
 .active-quiz .main-header {
@@ -96,6 +95,8 @@ button:focus {
     padding-top: 10px;
     font-size: 20px;
     font-weight: bold;
+    position: relative;
+    z-index: 1;
 }
 
 .inner-choice-wrapper {
@@ -202,7 +203,7 @@ button:focus {
 .quiz-card {
     box-shadow: 0px 0px 10px grey;
     display: block;
-    width: 25%;
+    width: 23%;
     min-width: 200px;
     height: 200px;
     text-decoration: none;
@@ -210,6 +211,7 @@ button:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 10px;
 }
 
 .blue-card {
@@ -341,6 +343,7 @@ button:focus {
     padding: 20px 15px;
     border-radius: 6px;
     font-size: 20px;
+    margin: 0 30px;
 }
 
 .body-tag.alert-warning .answer-alert-inner {
@@ -365,4 +368,10 @@ button:focus {
     transition: background-color .2s ease-in-out;
     cursor: pointer;
     font-weight: bold;
+}
+
+@media (max-width: 450px) {
+    .quiz-card {
+        width: 100%;
+    }
 }
