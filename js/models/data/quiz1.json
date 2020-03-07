@@ -1,0 +1,40 @@
+{
+    "quiz2": {
+        "totalQuestionCount": 3,
+        "quizQuestions": {
+            "1": {
+                "image": " ",
+                "question": "Which of the following was NOT a motivation for European colonization of the New World? ",
+                "answer": "c",
+                "choices": {
+                    "a": "religious freedom",
+                    "b": "economic opportunities",
+                    "c": "escape invaders",
+                    "d": "adventure seekers"
+                }
+            },
+            "2": {
+                "image": "",
+                "question": "Which of the following does NOT describe the Louisiana Purchase of 1803?",
+                "answer": "b",
+                "choices": {
+                    "a": "The United States purchased Louisiana from France for $15,000,000.",
+                    "b": "French power expanded in the Western Hemisphere.",
+                    "c": "Jefferson expanded the powers of the presidency.",
+                    "d": "The United States doubled in size."
+                }
+            },
+            "3": {
+                "image": "",
+                "question": "Large numbers of Irish immigrants came to the United States in the 1840s because of the?",
+                "answer": "b",
+                "choices": {
+                    "a": "Persecution of Irish Catholics in the rest of Europe.",
+                    "b": "Massive failure of the potato crop in Ireland.",
+                    "c": "Lure of gold in California.",
+                    "d": "British military aggression in Ireland."
+                }
+            }
+        }
+    } 
+}

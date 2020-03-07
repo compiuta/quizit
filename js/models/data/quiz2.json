@@ -1,0 +1,51 @@
+{
+    "quiz3": {
+        "totalQuestionCount": 4,
+        "quizQuestions": {
+            "1": {
+                "image": " ",
+                "question": "Which one of the following is a metalloid?",
+                "answer": "b",
+                "choices": {
+                    "a": "S",
+                    "b": "Ge",
+                    "c": "C",
+                    "d": "Pb"
+                }
+            },
+            "2": {
+                "image": "",
+                "question": "Which of the following atoms has the smallest radius",
+                "answer": "a",
+                "choices": {
+                    "a": "Ne",
+                    "b": "O",
+                    "c": "Li",
+                    "d": "B"
+                }
+            },
+            "3": {
+                "image": "",
+                "question": "How many electrons are in Br-?",
+                "answer": "c",
+                "choices": {
+                    "a": "4",
+                    "b": "7",
+                    "c": "36",
+                    "d": "34"
+                }
+            },
+            "4": {
+                "image": "",
+                "question": "What volume of 12.0 M HCl is required to make 75.0 mL of 3.50 M HCl?",
+                "answer": "d",
+                "choices": {
+                    "a": "0.560 mL",
+                    "b": "257 mL",
+                    "c": "560. mL",
+                    "d": " 21.9 mL"
+                }
+            }
+        }
+    } 
+}

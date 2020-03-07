@@ -1,0 +1,51 @@
+{
+    "quiz4": {
+        "totalQuestionCount": 4,
+        "quizQuestions": {
+            "1": {
+                "image": " ",
+                "question": "Solve the quadratic equation x² + 2x - 24 = 0",
+                "answer": "c",
+                "choices": {
+                    "a": "{6, -4}",
+                    "b": "{6, 4}",
+                    "c": "{-6, 4}",
+                    "d": "{-6, 1}"
+                }
+            },
+            "2": {
+                "image": "",
+                "question": "Find the slope of the line that goes through the points (-5, -1) and (-4, 5)",
+                "answer": "b",
+                "choices": {
+                    "a": "9/4",
+                    "b": "6",
+                    "c": "1/6",
+                    "d": "4/9"
+                }
+            },
+            "3": {
+                "image": "",
+                "question": "Write 3i - (-2 - i) in Standard form",
+                "answer": "c",
+                "choices": {
+                    "a": "-2 + 2i",
+                    "b": "2 - 2i",
+                    "c": "2 + 4i",
+                    "d": "-2 - 4i"
+                }
+            },
+            "4": {
+                "image": "",
+                "question": "Find the constant by completeing the square x² - 14x+ _",
+                "answer": "a",
+                "choices": {
+                    "a": "49",
+                    "b": "7",
+                    "c": "-49",
+                    "d": "196"
+                }
+            }
+        }
+    } 
+}
