@@ -256,7 +256,7 @@ button:focus {
 
 /*loader from https://codepen.io/hafizfattah/pen/AbBtc */
 .loader-container {
-	position: absolute;
+	position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
