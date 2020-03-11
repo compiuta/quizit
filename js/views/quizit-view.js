@@ -18,7 +18,6 @@
             }
 
             quizListItem.classList.add('quiz-card');
-            quizListItem.classList.add(cardColor);
             quizListItemTitle.classList.add('quiz-card__title');
 
             quizListItem.href = 'javascript:void(0);';
@@ -75,7 +74,7 @@
             app.quizItView.currentQuestionCounter = 1;
         },
         toggleResults: function() {
-            app.quizItView.quizQuestionsContainer.classList.toggle('hide');
+            app.quizItView.bodyTag.classList.toggle('quiz-end');
             app.quizItView.quizResultsContainer.classList.toggle('hide');
         },
         resetInitialQuizState: function() {
@@ -132,7 +131,7 @@
             this.quizModal = document.querySelector('[data-js="quizModal"]');
             this.quizTitle = document.querySelector('[data-js="quizTitle"]');
             this.quizQuestionsContainer = document.querySelector('[data-js="quizQuestionsContainer"]');
-            this.quizModalClose = document.querySelector('[data-js="quizModalClose"]');
+            this.quizModalClose = document.querySelectorAll('[data-js="quizModalClose"]');
             this.quizQuestion = document.querySelector('[data-js="quizQuestion"]');
             this.quizChoiceOneTitle = document.querySelector('[data-js="ChoiceOneTitle"]');
             this.quizChoiceTwoTitle = document.querySelector('[data-js="ChoiceTwoTitle"]');
@@ -147,7 +146,9 @@
             this.quizScore = document.querySelector('[data-js="quizScore"]');
         },
         addEventListeners: function() {
-            this.quizModalClose.addEventListener('click', this.resetInitialQuizState);
+            this.quizModalClose.forEach((element) => {
+                element.addEventListener('click', this.resetInitialQuizState);
+            });
             this.submitAnswerButton.addEventListener('click', app.quizItController.checkAnswer);
             this.nextQuestionButton.addEventListener('click', app.quizItController.nextQuestion);
         },
