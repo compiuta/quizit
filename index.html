@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>quizit</title>
-    <link href="https://fonts.googleapis.com/css?family=Chela+One|PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers|PT+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/quizit-styles.css">
 </head>
 <body data-js="bodyTag" class="body-tag">
@@ -28,64 +28,68 @@
     </div>
     <div data-js="quizModal" class="quiz-modal hide">
         <div class="max-container">
-            <div class="quiz-modal-header">
-                <div class="quiz-title-wrapper">
-                    <h2 data-js="quizTitle" class="quiz-title"></h2>
-                    <button data-js="submitAnswer" class="quiz-button submit-button">Submit Answer</button>
-                </div>
-                <div data-js="answerAlert" class="answer-alert hide">
-                    <div class="answer-alert-inner">
-                        <p data-js="answerMessage" class="answer-message">wrong orrect answer is a</p>
-                        <button data-js="nextQuestion" class="quiz-button next-button hide">Next Question</button>
+            <div class="quiz-wrapper">
+                <div class="quiz-modal-header">
+                    <div class="quiz-title-wrapper">
+                        <h2 data-js="quizTitle" class="quiz-title"></h2>
                     </div>
-                </div>
-                <div data-js="quizModalClose" class="quiz-modal__close" title="close quiz">x</div>
-            </div>
-            <div class="quiz-container">
-                <form data-js="quizQuestionsContainer" class="quiz-questions-container">
                     <h3 data-js="quizQuestion" class="quiz-question"></h3>
-                    <div class="question-answer-choices">
-                        <input name="choice" value="a" id="choiceOne" type="radio" class="hide">
-                        <label class="choice-container orange-choice" for="choiceOne">
-                            <div class="inner-choice-wrapper">
-                                <span data-js="ChoiceOneTitle" class="choice-title"></span>
-                                <div class="circle-icon-container">
-                                    <span class="circle-icon"></span>
-                                </div>
-                            </div>
-                        </label>
-                        <input name="choice" value="b" id="choiceTwo" type="radio" class="hide">
-                        <label class="choice-container green-choice" for="choiceTwo">
-                            <div class="inner-choice-wrapper">
-                                <span data-js="ChoiceTwoTitle" class="choice-title"></span>
-                                <div class="circle-icon-container">
-                                    <span class="circle-icon"></span>
-                                </div>
-                            </div>
-                        </label>
-                        <input name="choice" value="c" id="choiceThree" type="radio" class="hide">
-                        <label class="choice-container red-choice" for="choiceThree">
-                            <div class="inner-choice-wrapper">
-                                <span data-js="ChoiceThreeTitle" class="choice-title"></span>
-                                <div class="circle-icon-container">
-                                    <span class="circle-icon"></span>
-                                </div>
-                            </div>
-                        </label>
-                        <input name="choice" value="d" id="choiceFour" type="radio" class="hide">
-                        <label class="choice-container purple-choice" for="choiceFour">
-                            <div class="inner-choice-wrapper">
-                                <span data-js="ChoiceFourTitle" class="choice-title"></span>
-                                <div class="circle-icon-container">
-                                    <span class="circle-icon"></span>
-                                </div>
-                            </div>
-                        </label>
+                    <div data-js="answerAlert" class="answer-alert hide">
+                        <div class="answer-alert-inner">
+                            <p data-js="answerMessage" class="answer-message"></p>
+                            <button data-js="nextQuestion" class="quiz-button next-button hide">Next Question</button>
+                        </div>
                     </div>
-                </form>
-                <div data-js="quizResults" class="quiz-results-container hide">
-                    <h6 class="results-header">The End</h6>
-                    <p class="results-message">Your final score is: <span data-js="quizScore" class="quiz-score"></span></p>
+                    <div data-js="quizModalClose" class="quiz-modal__close" title="close quiz">x</div>
+
+                    <button data-js="submitAnswer" class="quiz-button submit-button">Submit Answer</button>
+                    <div data-js="quizResults" class="quiz-results-container hide">
+                        <h4 class="results-header">The End</h4>
+                        <p class="results-message">Your final score is: <span data-js="quizScore" class="quiz-score"></span></p>
+                        <div data-js="quizModalClose" class="quiz-button">Start New Quiz</div>
+                    </div>
+                </div>
+                <div class="quiz-container">
+                    <form data-js="quizQuestionsContainer" class="quiz-questions-container">
+                        <div class="question-answer-choices">
+                            <label class="choice-container " for="choiceOne">
+                                <input name="choice" value="a" id="choiceOne" type="radio" class="hide">
+                                <div class="inner-choice-wrapper">
+                                    <div class="circle-icon-container">
+                                        <span class="circle-icon"></span>
+                                    </div>
+                                    <span data-js="ChoiceOneTitle" class="choice-title"></span>
+                                </div>
+                            </label>
+                            <label class="choice-container " for="choiceTwo">
+                                <input name="choice" value="b" id="choiceTwo" type="radio" class="hide">
+                                <div class="inner-choice-wrapper">
+                                    <div class="circle-icon-container">
+                                        <span class="circle-icon"></span>
+                                    </div>
+                                    <span data-js="ChoiceTwoTitle" class="choice-title"></span>
+                                </div>
+                            </label>
+                            <label class="choice-container " for="choiceThree">
+                                <input name="choice" value="c" id="choiceThree" type="radio" class="hide">
+                                <div class="inner-choice-wrapper">
+                                    <div class="circle-icon-container">
+                                        <span class="circle-icon"></span>
+                                    </div>
+                                    <span data-js="ChoiceThreeTitle" class="choice-title"></span>
+                                </div>
+                            </label>
+                            <label class="choice-container " for="choiceFour">
+                                <input name="choice" value="d" id="choiceFour" type="radio" class="hide">
+                                <div class="inner-choice-wrapper">
+                                    <div class="circle-icon-container">
+                                        <span class="circle-icon"></span>
+                                    </div>
+                                    <span data-js="ChoiceFourTitle" class="choice-title"></span>
+                                </div>
+                            </label>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
