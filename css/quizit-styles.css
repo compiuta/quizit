@@ -204,6 +204,11 @@ button:focus {
     justify-content: center;
     align-items: center;
     background-color: #000;
+    transition: opacity .3s ease-out;
+}
+
+.fade-loader {
+    opacity: 0;
 }
 
 .loader-title {
