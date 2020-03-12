@@ -28,7 +28,22 @@
             return quizListItem;
         },
         toggleLoader: function() {
-            app.quizItView.loader.classList.toggle('hide');
+
+            if(app.quizItView.loader.classList.contains('hide')) {
+                app.quizItView.loader.classList.remove('hide');
+            } else {
+                app.quizItView.loaderFadeOut();
+            }
+
+        },
+        loaderFadeOut: function() {
+            app.quizItView.loader.classList.add('fade-loader');
+            setTimeout(function() {
+                app.quizItView.loader.classList.remove('fade-loader');
+            }, 300);
+            setTimeout(function() {
+                app.quizItView.loader.classList.add('hide');
+            }, 300);
         },
         populateQuestionList: function(data) {
             let fragment = document.createDocumentFragment();
@@ -80,7 +95,9 @@
         resetInitialQuizState: function() {
             app.quizItView.toggleLoader();
 
-            if(app.quizItView.currentQuestionCounter === app.quizItController.totalQuestionCount) {
+            if(app.quizItView.bodyTag.classList.contains('quiz-end')) {
+                console.log(app.quizItView.currentQuestionCounter);
+                console.log(app.quizItController.totalQuestionCount);
                 app.quizItView.toggleResults();
             }
 
