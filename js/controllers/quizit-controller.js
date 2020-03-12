@@ -40,6 +40,8 @@
         nextQuestion: function(e) {
             e.preventDefault();
             app.quizItView.toggleLoader();
+
+            
             
             if(app.quizItView.currentQuestionCounter === Object.keys(app.quizItModel.selectedQuizData[app.quizItModel.currentQuizID].quizQuestions).length) {
                 app.quizItView.showQuizResults(app.quizItModel.correctAnswersCounter);
